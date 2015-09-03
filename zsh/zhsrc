@@ -1,0 +1,4 @@
+export DOTFILES=$HOME/.dotfiles
+export ZSH=$DOTFILES/szh
+
+for config ($ZSH/**/*.zsh) source $config
