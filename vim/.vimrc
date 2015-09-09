@@ -40,7 +40,14 @@ set softtabstop=4
 set expandtab
 
 " load plugins from vundle
-source ~/.dotfiles/vim/plugins.vim
+try 
+  source ~/.dotfiles/vim/plugins.vim
+catch
+  " No such file? No problem; just ignore it.
+    source ~/.dotfiles/dotfiles/vim/plugins.vim
+endtry 
+
+colorscheme Monokai
 
 let g:syntastic_rst_ignore_errors = (['Error in "sourcecode" directive:', 'Error in "sourcecode" directive: ','error in "sourcecode" directive: ','error in "sourcecode" directive:','sourcecode'])
 " save on losing focus
