@@ -152,5 +152,24 @@ autocmd FileType rst setlocal textwidth=118
 " all files use utf-8 encoding
 autocmd FileType rst setlocal encoding=utf-8
 
+"""""""""""""""""
+" settings for tex
+"""""""""""""""""
+
+" indentation settings
+autocmd FileType plaintex setlocal expandtab shiftwidth=4 tabstop=4
+
+" show a ruler at the right hand margin
+autocmd FileType plaintex setlocal colorcolumn=120
+
+" for wrapping text
+autocmd FileType plaintex setlocal textwidth=118
+
+" spell checking
+autocmd FileType plaintex syntax spell toplevel
+autocmd FileType plaintex setlocal spell
+autocmd FileType plaintex setlocal spell spelllang=en_us
+
+
 " Ack
 nnoremap <leader>a :Ack!<space>
