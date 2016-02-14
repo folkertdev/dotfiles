@@ -40,21 +40,13 @@ set softtabstop=4
 set expandtab
 
 " load plugins from vundle
-try 
-  source ~/.dotfiles/vim/plugins.vim
-catch
-  " No such file? No problem; just ignore it.
-    source ~/.dotfiles/dotfiles/vim/plugins.vim
-endtry 
+source ~/.dotfiles/vim/plugins.vim
 
-colorscheme Monokai
 
 let g:syntastic_rst_ignore_errors = (['Error in "sourcecode" directive:', 'Error in "sourcecode" directive: ','error in "sourcecode" directive: ','error in "sourcecode" directive:','sourcecode'])
 " save on losing focus
 au FocusLost * :wa
 
-" copy to system clipboard
-set clipboard=unnamedplus
 
 set number  "show line numbers
 " remap split switching keys
@@ -125,6 +117,7 @@ set foldtext=MyFoldText()
 
 
 autocmd! BufNewFile,BufReadPre,FileReadPre  *.py    so ~/.dotfiles/vim/python.vim
+autocmd! BufNewFile,BufReadPre,FileReadPre  *.hs    so ~/.dotfiles/vim/haskell.vim
 " autocmd! BufNewFile,BufReadPre,FileReadPre  *.rst    so ~/.dotfiles/vim/rst.vim
 augroup project
     autocmd!
@@ -177,6 +170,14 @@ autocmd FileType plaintex syntax spell toplevel
 autocmd FileType plaintex setlocal spell
 autocmd FileType plaintex setlocal spell spelllang=en_us
 
+colorscheme Monokai
+colorscheme hybrid
+colorscheme hybrid
+
+
+" copy to system clipboard
+" see http://askubuntu.com/questions/347519/unable-to-copy-from-vim-to-system-clipboard
+set clipboard=unnamedplus
 
 " Ack
 nnoremap <leader>a :Ack!<space>
