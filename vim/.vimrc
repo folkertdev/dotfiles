@@ -121,11 +121,13 @@ let g:elm_format_autosave = 1
 autocmd! BufNewFile,BufReadPre,FileReadPre  *.m set syntax=octave
 autocmd! BufNewFile,BufReadPre,FileReadPre  *.py    so ~/.dotfiles/vim/python.vim
 autocmd! BufNewFile,BufReadPre,FileReadPre  *.hs    so ~/.dotfiles/vim/haskell.vim
-" autocmd! BufNewFile,BufReadPre,FileReadPre  *.rst    so ~/.dotfiles/vim/rst.vim
+autocmd! BufNewFile,BufReadPre,FileReadPre  *.elm    so ~/.dotfiles/vim/elm.vim
+
 augroup project
     autocmd!
     autocmd BufRead,BufNewFile *.h,*.c,*.cpp,*.hpp set makeprg=make\ -C\ /root/blender-git/build
 augroup END
+
 filetype plugin on
 filetype indent on
 
@@ -189,3 +191,4 @@ colorscheme hybrid
 
 " make comments readable
 set background=dark
+set term=screen-256color
