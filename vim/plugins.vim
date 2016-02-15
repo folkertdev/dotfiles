@@ -5,22 +5,39 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
+" General
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'godlygeek/tabular'
+Plugin 'ervandew/supertab'
+Plugin 'Shougo/vimproc'
+Plugin 'tomtom/tlib_vim'
+Plugin 'Shougo/neocomplete'
+" Color Schemes
 Plugin 'chriskempson/base16-vim'
+Plugin 'flazz/vim-colorschemes' 
+" Web Technologies
 Plugin 'joshtronic/php.vim'
+Plugin 'JulesWang/css.vim'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'elzr/vim-json'
+" Ack 
 Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/syntastic'
 " Plugin 'Valloric/YouCompleteMe'
-Plugin 'flazz/vim-colorschemes' 
-Plugin 'JulesWang/css.vim'
+" Writing 
 Plugin 'genoma/vim-less'
 Plugin 'reedes/vim-wordy'
 Plugin 'reedes/vim-lexical'
-Plugin 'lambdatoast/elm.vim'
-Plugin 'dag/vim2hs'
+" Elm 
+Plugin 'ElmCast/elm-vim'
+" Plugin 'dag/vim2hs'
+" Haskell plugins
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/neco-ghc'
+" Latex 
+Plugin 'lervag/vimtex'
 
 call vundle#end()
 filetype plugin indent on
@@ -30,7 +47,9 @@ set rtp+=~/.vim/bundle/Vundle/
 " Plugin settings 
 """
 
+" NerdTree
 let NERDTreeShowHidden=1
+map <Leader>n :NERDTreeToggle<CR>
 
 
 set statusline+=%#warningmsg#
