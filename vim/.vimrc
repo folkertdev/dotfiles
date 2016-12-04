@@ -9,8 +9,6 @@ let mapleader=","
 set noswapfile
 set nobackup
 
-" make comments readable
-set background=dark
 
 " shows the current mode
 set showmode
@@ -27,6 +25,9 @@ augroup line_return
         \     execute 'normal! g`"zvzz' |
         \ endif
 augroup END
+
+" allow the . to execute once for each line of a visual selection
+vnoremap . :normal .<CR>
 
 " Clean trailing whitespace
 nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
@@ -115,7 +116,9 @@ set foldtext=MyFoldText()
 " Language-specific settings "
 """"""""""""""""""""""""""
 
+let g:elm_format_autosave = 1
 
+autocmd! BufNewFile,BufReadPre,FileReadPre  *.m set syntax=octave
 autocmd! BufNewFile,BufReadPre,FileReadPre  *.py    so ~/.dotfiles/vim/python.vim
 autocmd! BufNewFile,BufReadPre,FileReadPre  *.hs    so ~/.dotfiles/vim/haskell.vim
 " autocmd! BufNewFile,BufReadPre,FileReadPre  *.rst    so ~/.dotfiles/vim/rst.vim
@@ -170,9 +173,6 @@ autocmd FileType plaintex syntax spell toplevel
 autocmd FileType plaintex setlocal spell
 autocmd FileType plaintex setlocal spell spelllang=en_us
 
-colorscheme Monokai
-colorscheme hybrid
-colorscheme hybrid
 
 
 " copy to system clipboard
@@ -181,3 +181,11 @@ set clipboard=unnamedplus
 
 " Ack
 nnoremap <leader>a :Ack!<space>
+
+
+colorscheme Monokai
+colorscheme hybrid
+colorscheme hybrid
+
+" make comments readable
+set background=dark

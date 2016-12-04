@@ -6,7 +6,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " General
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -15,6 +17,7 @@ Plugin 'ervandew/supertab'
 Plugin 'Shougo/vimproc'
 Plugin 'tomtom/tlib_vim'
 Plugin 'Shougo/neocomplete'
+Plugin 'christoomey/vim-tmux-navigator'
 " Color Schemes
 Plugin 'chriskempson/base16-vim'
 Plugin 'flazz/vim-colorschemes' 
@@ -35,9 +38,12 @@ Plugin 'ElmCast/elm-vim'
 " Plugin 'dag/vim2hs'
 " Haskell plugins
 Plugin 'eagletmt/ghcmod-vim'
+Plugin 'dag/vim2hs'
+Plugin 'bitc/vim-hdevtools'
 Plugin 'eagletmt/neco-ghc'
 " Latex 
 Plugin 'lervag/vimtex'
+Plugin 'jvirtanen/vim-octave'
 
 call vundle#end()
 filetype plugin indent on
@@ -63,3 +69,6 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_html_tidy_exec = 'tidy'
 let g:syntastic_python_python_exec = '/usr/bin/env/python3'
+
+"au FileType tex map <leader>ml :!pdflatex %<CR>
+map <leader>ml :!pdflatex %<CR>
