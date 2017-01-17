@@ -43,6 +43,9 @@ set expandtab
 " load plugins from vundle
 source ~/.dotfiles/vim/plugins.vim
 
+" load mappings 
+source ~/.dotfiles/vim/mappings/leader.vim
+
 
 let g:syntastic_rst_ignore_errors = (['Error in "sourcecode" directive:', 'Error in "sourcecode" directive: ','error in "sourcecode" directive: ','error in "sourcecode" directive:','sourcecode'])
 " save on losing focus
