@@ -8,6 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 " General
 "Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
+Plugin 'wellle/targets.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'

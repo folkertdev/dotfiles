@@ -1,6 +1,6 @@
 " <Leader>r -- Cycle through relativenumber + number, number (only), and no
 " numbering (mnemonic: relative).
-nnoremap <silent> <Leader>r :call Cycle_numbering()<CR>
+" nnoremap <silent> <Leader>r :call Cycle_numbering()<CR>
 
 "<Leader>z -- Zap trailing whitespace
 nnoremap <silent> <Leader>z :call Zap()<CR>

@@ -1,5 +1,5 @@
-" autoreload vimrc
-" autocmd! bufwritepost .vimrc source %
+"autoreload vimrc
+"autocmd! bufwritepost .vimrc source %
 
 " syntax highlighting
 syntax on
@@ -13,17 +13,18 @@ set nobackup
 " shows the current mode
 set showmode
 
-" Do case sensitive search/replace only when a character (in the command) is uppercase
+" Do case sensitive search/replace only when a character (in the command) is
+" uppercase
 set smartcase
 
 " Make sure Vim returns to the same line when you reopen a file.
 " Thanks, Amit
 augroup line_return
     au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
+        au BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \     execute 'normal! g`"zvzz' |
+      \ endif
 augroup END
 
 " allow the . to execute once for each line of a visual selection
@@ -43,16 +44,14 @@ set expandtab
 " load plugins from vundle
 source ~/.dotfiles/vim/plugins.vim
 
-" load mappings 
-source ~/.dotfiles/vim/mappings/leader.vim
 
+let g:syntastic_rst_ignore_errors = (['Error in "sourcecode" directive:', 'Error in "sourcecode" directive: ','error in "sourcecode" directive: ','error in "sourcecode" directive:','sourcecode']) 
 
-let g:syntastic_rst_ignore_errors = (['Error in "sourcecode" directive:', 'Error in "sourcecode" directive: ','error in "sourcecode" directive: ','error in "sourcecode" directive:','sourcecode'])
 " save on losing focus
 au FocusLost * :wa
 
 
-set number  "show line numbers
+set relativenumber  "show line numbers
 " remap split switching keys
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -96,21 +95,25 @@ nnoremap <c-o> <c-o>zz
 function! MyFoldText() " {{{
     let line = getline(v:foldstart)
 
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
+        let nucolwidth = &fdc + &number * &numberwidth
+            let windowwidth = winwidth(0) - nucolwidth - 3
+                let foldedlinecount = v:foldend - v:foldstart
 
-    " expand tabs into spaces
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
+                    " expand tabs into spaces
+                        let onetab = strpart('          ', 0, &tabstop)
+                            let line = substitute(line, '\t', onetab, 'g')
 
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
-endfunction " }}}
-set foldtext=MyFoldText()
-"""""""""""""""""""""""""""
-" Status Bar settings "
+                                let line = strpart(line, 0, windowwidth - 2
+                                -len(foldedlinecount))
+                                    let fillcharcount = windowwidth -
+                                    len(line) - len(foldedlinecount)
+                                        return line . '…' . repeat("
+                                        ",fillcharcount) . foldedlinecount .
+                                        '…' . ' '
+                                        endfunction " }}}
+                                        set foldtext=MyFoldText()
+                                        """""""""""""""""""""""""""
+"Status Bar settings "
 """"""""""""""""""""""""""
 
 
@@ -119,46 +122,44 @@ set foldtext=MyFoldText()
 " Language-specific settings "
 """"""""""""""""""""""""""
 
-let g:elm_format_autosave = 1
 
 autocmd! BufNewFile,BufReadPre,FileReadPre  *.m set syntax=octave
 autocmd! BufNewFile,BufReadPre,FileReadPre  *.py    so ~/.dotfiles/vim/python.vim
 autocmd! BufNewFile,BufReadPre,FileReadPre  *.hs    so ~/.dotfiles/vim/haskell.vim
 autocmd! BufNewFile,BufReadPre,FileReadPre  *.elm    so ~/.dotfiles/vim/elm.vim
-
+" autocmd! BufNewFile,BufReadPre,FileReadPre  *.rst    so ~/.dotfiles/vim/rst.vim
 augroup project
     autocmd!
-    autocmd BufRead,BufNewFile *.h,*.c,*.cpp,*.hpp set makeprg=make\ -C\ /root/blender-git/build
-augroup END
-
-filetype plugin on
-filetype indent on
-
-
-" These settings will only impact editing '.rst' files.
-" so as not to conflict with any of your other settings.
-
-" indentation settings
-autocmd FileType rst setlocal expandtab shiftwidth=3 tabstop=3
-
-" show a ruler at the right hand margin
-autocmd FileType rst setlocal colorcolumn=120
-
-" enable syntax highlighting
-" autocmd FileType rst syntax on
-
-" spell checking
-syntax spell toplevel
-set spell
-set spell spelllang=en_us
+        autocmd BufRead,BufNewFile *.h,*.c,*.cpp,*.hpp set makeprg=make\ -C\ /root/blender-git/build
+        augroup END
+        filetype plugin on
+        filetype indent on
 
 
-" for wrapping text
-autocmd FileType rst setlocal textwidth=118
+        " These settings will only impact editing '.rst' files.
+        " so as not to conflict with any of your other settings.
+
+        " indentation settings
+        autocmd FileType rst setlocal expandtab shiftwidth=3 tabstop=3
+
+        " show a ruler at the right hand margin
+        autocmd FileType rst setlocal colorcolumn=120
+
+        " enable syntax highlighting
+        " autocmd FileType rst syntax on
+
+        " spell checking
+        syntax spell toplevel
+        set spell
+        set spell spelllang=en_us
 
 
-" all files use utf-8 encoding
-autocmd FileType rst setlocal encoding=utf-8
+        " for wrapping text
+        autocmd FileType rst setlocal textwidth=118
+
+
+        " all files use utf-8 encoding
+        autocmd FileType rst setlocal encoding=utf-8
 
 """""""""""""""""
 " settings for tex
@@ -194,4 +195,3 @@ colorscheme hybrid
 
 " make comments readable
 set background=dark
-set term=screen-256color
