@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " General
-"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
 Plugin 'terryma/vim-multiple-cursors'
@@ -19,6 +19,7 @@ Plugin 'Shougo/vimproc'
 Plugin 'tomtom/tlib_vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'wincent/command-t'
 " Color Schemes
 Plugin 'chriskempson/base16-vim'
 Plugin 'flazz/vim-colorschemes' 
