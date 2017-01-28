@@ -8,6 +8,9 @@ let mapleader=","
 
 set noswapfile
 set nobackup
+set cursorline " highlight current line    
+set showmatch  " show matching bracket 
+
 
 
 " shows the current mode
@@ -71,7 +74,6 @@ noremap Y y$
 :nnoremap <Leader>q' ciw''<Esc>P
 
 " map <Leader>nt :NERDTreeToggle<cr>
-" colorscheme molokai
 
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 
@@ -188,10 +190,31 @@ set clipboard=unnamedplus
 " Ack
 nnoremap <leader>a :Ack!<space>
 
-
-colorscheme Monokai
-colorscheme hybrid
-colorscheme hybrid
-
 " make comments readable
 set background=dark
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+let base16colorspace=256
+
+colorscheme base16-tomorrow-night
+
+
+" Cycle through relativenumber + number, number (only), and no numbering.
+function! Cycle_numbering() abort
+  if exists('+relativenumber')
+    execute {
+          \ '00': 'set relativenumber   | set number',
+          \ '01': 'set norelativenumber | set number',
+          \ '10': 'set norelativenumber | set nonumber',
+          \ '11': 'set norelativenumber | set number' }[&number . &relativenumber]
+  else
+    " No relative numbering, just toggle numbers on and off.
+    set number!<CR>
+  endif
+endfunction
+
+nnoremap <silent> <Leader>r :call Cycle_numbering()<CR>
