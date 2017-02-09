@@ -4,6 +4,7 @@
 " syntax highlighting
 syntax on
 
+
 let mapleader=","
 
 set noswapfile
@@ -189,9 +190,15 @@ set clipboard=unnamedplus
 nnoremap <leader>a :Ack!<space>
 
 
-colorscheme Monokai
-colorscheme hybrid
-colorscheme hybrid
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+" make vim work nicely with tmux
+set term=screen-256color
 
 " make comments readable
 set background=dark
+
+
