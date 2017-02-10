@@ -4,6 +4,7 @@
 " syntax highlighting
 syntax on
 
+
 let mapleader=","
 
 set noswapfile
@@ -190,18 +191,10 @@ set clipboard=unnamedplus
 " Ack
 nnoremap <leader>a :Ack!<space>
 
-" make comments readable
-set background=dark
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
-let base16colorspace=256
 
 colorscheme base16-tomorrow-night
 
+set relativenumber
 
 " Cycle through relativenumber + number, number (only), and no numbering.
 function! Cycle_numbering() abort
@@ -217,4 +210,19 @@ function! Cycle_numbering() abort
   endif
 endfunction
 
+
+
 nnoremap <silent> <Leader>r :call Cycle_numbering()<CR>
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+" make vim work nicely with tmux
+set term=screen-256color
+
+" make comments readable
+set background=dark
+
+
