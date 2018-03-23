@@ -6,19 +6,22 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'chriskempson/base16-vim' "my color schemes
-Plugin 'w0rp/ale' "asynchronous linter
-Plugin 'airblade/vim-gitgutter' "display git info in the gutter (left bar)
 Plugin 'sheerun/vim-polyglot'
+Plugin 'airblade/vim-gitgutter' "display git info in the gutter (left bar)
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'Shougo/vimproc' "bit special, needs to be compiled
+Plugin 'w0rp/ale' "asynchronous linter
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'tpope/vim-commentary' "comment a line with `gc`
 Plugin 'tpope/vim-surround' "change surrounding brackets
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat' "repeat stuff with `.` that is not normally repeatable
 Plugin 'ElmCast/elm-vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'ervandew/supertab' "tab completions in insert mode
+Plugin 'scrooloose/nerdtree' "file browser
+Plugin 'godlygeek/tabular' "markdown table formatting
 
 call vundle#end()
 filetype plugin indent on
@@ -59,7 +62,7 @@ let g:haskell_indent_guard = 4
 let g:haskell_indent_case_alternative = 4
 
 
-map <silent> tw :GhcModTypeInsert<CR>
-map <silent> ts :GhcModSplitFunCase<CR>
-map <silent> tq :GhcModType<CR>
-map <silent> te :GhcModTypeClear<CR>
+map <silent> tw :ghcmodtypeinsert<cr>
+map <silent> ts :ghcmodsplitfuncase<cr>
+map <silent> tq :ghcmodtype<cr>
+map <silent> te :ghcmodtypeclear<cr>
